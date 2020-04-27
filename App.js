@@ -2,6 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Button,SafeAreaView, Dimensions } from 'react-native';
 import CountdownCircle from 'react-native-countdown-circle';
 import { BackHandler } from 'react-native';
+
+import PlayScreen from './src/Screens/PlayScreen';
+
+
 export default class App extends React.Component {
   componentWillMount() {
     BackHandler.addEventListener('hardwareBackPress', function () {
@@ -26,12 +30,6 @@ export default class App extends React.Component {
   this.setState({
     count: this.state.count + 1,
   })
-  if (this.state.count === 19) {
-    this.setState({
-      time: this.state.time = true
-    })
-    //this.props.navigation.navigate('After20');
-  }
   var a = this.state.randCount;
   this.setState({
     randCount: this.state.randCount = Math.ceil(Math.random() * 5)
@@ -61,41 +59,21 @@ pressAndAddCount = () => {
 countDown = (a) => {
 
   if (a === 1) {
-    if (this.state.time === true) {
-      return 750;
-    }
     return 1;
   }
   if (a === 2) {
-    if (this.state.time === true) {
-      return 750;
-    }
     return 1.5;
   }
   if (a === 3) {
-    if (this.state.time === true) {
-      return 750;
-    }
     return 2;
   }
   if (a === 4) {
-    if (this.state.time === true) {
-      return 750;
-    }
-
     return 3;
   }
   if (a === 5) {
-    if (this.state.time === true) {
-      return 750;
-    }
     return 4;
   }
   else {
-    if (this.state.time === true) {
-      return 750;
-    }
-
     return 10;
   }
 }
@@ -114,12 +92,9 @@ countDown = (a) => {
 */
 render() {
   return (
-
-    <View>
       <View style={styles.linearGradient}>
           <View style={{
-            flexDirection: 'row', alignItems: 'center', backgroundColor: "transparent"
-          }} >
+            flexDirection: 'row', alignItems: 'center', backgroundColor: "transparent" }} >
             <CountdownCircle
               seconds={this.countDown(this.state.randCount)}
               radius={30}
@@ -128,7 +103,7 @@ render() {
               bgColor="white"
               style={{ marginLeft: 20 }}
               textStyle={{ fontSize: 20 }}
-              onTimeElapsed={()=>alert('GAME OVER')}
+              onTimeElapsed={()=>this.props.navigation.navigate('GameOverScreen')}//buraya navigate gelicek
             />
             <Text style={styles.textDesign}>{this.state.count}</Text>
           </View>
@@ -144,52 +119,36 @@ render() {
             </TouchableOpacity>
           </SafeAreaView>
       </View>
-    </View>
   );
 }
 }
 const styles = StyleSheet.create({
-
   textDesign: {
     fontSize: 70,
     fontStyle: 'italic',
     textShadowColor: 'black',
-    color: "#000000",
+    color: "#5A1C54",
     fontWeight: '500',
     marginTop: 5,
     textShadowRadius: 5,
     marginLeft:Dimensions.get('window').width/3.3
   },
   linearGradient: {
-    width: 375,
-    height: 800,
-  },
-  btn: {
-    color: "white",
-    height: 50,
-    width: 50
+    flex:1,
+    backgroundColor:'#1B2850',
   }, 
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginLeft: 35
-  },
   buttonContainer: {
     flex: 1,
   },
   box: {
     width: 75,
     height: 75,
-    backgroundColor: '#FF9900',
+    backgroundColor: '#9F8EB2',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 5,
   },
   boxMargin: {
-    //marginLeft:Math.floor(Math.random() *Dimensions.get('window').width)+1+37.5,
-    //marginTop:Math.floor(Math.random()* Dimensions.get('window').height)+1+37.5,
     marginTop: (Math.random() * 10 + 1) * 45,
     marginLeft: (Math.random() * 10 + 1) * 30
   }
