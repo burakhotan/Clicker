@@ -57,7 +57,6 @@ pressAndAddCount = () => {
   }
 };
 countDown = (a) => {
-
   if (a === 1) {
     return 1;
   }

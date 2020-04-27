@@ -7,12 +7,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 import PlayScreen from './Screens/PlayScreen';
 import AppScreen from '../App';
 import GameOverScreen from './Screens/GameOverScreen';
+import LoginScreen from './Screens/Login';
 const Stack = createStackNavigator();
 
   function Router() {
   return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="PlayScreen">
+        <Stack.Navigator initialRouteName="Login">
 
             <Stack.Screen name= "PlayScreen" component={PlayScreen}
             options={{
@@ -25,6 +26,11 @@ const Stack = createStackNavigator();
             }}
             />
             <Stack.Screen name= "GameOverScreen" component={GameOverScreen}
+            options={{
+                headerShown:false
+            }}
+            />
+             <Stack.Screen name= "Login" component={LoginScreen}
             options={{
                 headerShown:false
             }}

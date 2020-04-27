@@ -6,7 +6,7 @@ export default class ButtonComp extends Component {
         const {screen, navigation, buttonText} = this.props;
         return (
             <View style={styles.buttonContainer}>
-                <TouchableOpacity onPress={() => navigation.navigate(screen)}>
+                <TouchableOpacity onPress={() => navigation.reset({routes:[{name:screen}]})}>
                     <Text style={styles.textStyle}>{buttonText}</Text>
                 </TouchableOpacity>
             </View>
@@ -21,11 +21,6 @@ const styles = StyleSheet.create({
         marginHorizontal: Dimensions.get('window').width / 3,
         marginVertical:30,
         borderRadius: 12
-    },
-    button1: {
-        width: 95,
-        height: 30,
-        backgroundColor: '#000000'
     },
     textStyle: {
         alignSelf: 'center',

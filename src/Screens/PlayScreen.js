@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text,StyleSheet } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 //Component
 import ButtonComp from '../Components/ButtonComp';
 export default class PlayScreen extends Component {
@@ -18,10 +17,10 @@ export default class PlayScreen extends Component {
             buttonText='PLAY'
            >
            </ButtonComp>
-           <ButtonComp style={styles.playButton}
+           <ButtonComp style={styles.leaderButton}
             screen={'App'}
             navigation={navigation}
-            buttonText='PLAY'
+            buttonText='LEADER BOARD'
            >
            </ButtonComp>     
         </View>
