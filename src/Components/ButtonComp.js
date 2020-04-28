@@ -3,10 +3,10 @@ import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-nati
 
 export default class ButtonComp extends Component {
     render() {
-        const {screen, navigation, buttonText} = this.props;
+        const {screen, navigation, buttonText,onPress} = this.props;
         return (
             <View style={styles.buttonContainer}>
-                <TouchableOpacity onPress={() => navigation.reset({routes:[{name:screen}]})}>
+                <TouchableOpacity onPress={onPress} >
                     <Text style={styles.textStyle}>{buttonText}</Text>
                 </TouchableOpacity>
             </View>
