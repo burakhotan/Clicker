@@ -13,7 +13,6 @@ export default class ImageButton extends Component {
     );
   }
 }
-
 const styles = StyleSheet.create ({
     mButtonContainer:{
         padding:5,

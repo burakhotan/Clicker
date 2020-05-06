@@ -11,27 +11,32 @@ export default class GameOverScreen extends Component {
             score: '',
             userObject: {},
             userId: '',
+            highScore: 0
         };
     }
+
     componentDidMount = async () => {
         await AsyncStorage.getItem('item').then(req => JSON.parse(req))
             .then(json => {
                 this.setState({
                     userObject: json,
-                    userId: json._id
+                    userId: json._id,
+                    highScore: json.score
                 })
             })
             .catch(error => console.log('error!'));
         if (this.props.route.params.lastScore > (this.state.userObject.score !== null ? this.state.userObject.score : 0)) {
+            this.setState({
+                highScore: this.props.route.params.lastScore
+            })
             AsyncStorage.setItem('item', JSON.stringify({
                 _id: this.state.userId,
                 score: this.props.route.params.lastScore,
                 username: this.state.userObject.username
             }));
             console.warn(this.props.route.params.lastScore + " , " + this.state.userObject.score)
-            this.addScores();
+            this.addScores()
         }
-
     };
     addScores = async () => {
         let body = {
@@ -41,8 +46,8 @@ export default class GameOverScreen extends Component {
         let responseData = await addScore({ body: body })
         if (responseData !== null) {
             this.setState({ score: '' })
-            this.props.navigation.reset({ routes: [{ name: 'App' }] })
         }
+
     }
     goPlay = () => {
         this.props.navigation.reset({ routes: [{ name: 'PlayScreen' }] })
@@ -58,7 +63,7 @@ export default class GameOverScreen extends Component {
                     screen={'App'}
                     navigation={navigation}
                     buttonText='TRY AGAIN'
-                    onPress={() => this.addScores()}
+                    onPress={() => { this.props.navigation.reset({ routes: [{ name: 'App' }] }) }}
                 >
                 </ButtonComp>
                 <ButtonComp style={styles.menuButton}
@@ -69,7 +74,7 @@ export default class GameOverScreen extends Component {
                 >
                 </ButtonComp>
                 <Text style={styles.scoreText}>
-                    HighestScore: {this.state.userObject.score}
+                    HighestScore: {this.state.highScore}
                 </Text>
             </View>
         );

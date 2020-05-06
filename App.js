@@ -88,7 +88,6 @@ export default class App extends React.Component {
           />
           <Text style={styles.textDesign}>{this.state.count}</Text>
         </View>
-
         <SafeAreaView style={[styles.boxMargin, {
           marginTop: (Math.random() * 10 + 1) * 45,
           marginLeft: (Math.random() * 10 + 1) * 30

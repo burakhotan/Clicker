@@ -10,7 +10,7 @@ import GameOverScreen from './Screens/GameOverScreen';
 import LoginScreen from './Screens/Login';
 import LeaderBoardScreen from './Screens/LeaderBoard';
 
-
+console.disableYellowBox = true;
 const Stack = createStackNavigator();
 
   function Router() {

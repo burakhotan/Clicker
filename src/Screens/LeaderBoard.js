@@ -16,7 +16,7 @@ export default class LeaderBoard extends Component {
     return (
       <View style={styles.textContainer}>
         <Text style={styles.itemName}>{item.username}</Text>
-        <Text style={styles.itemScore}>Highest:{item.score}</Text>
+        <Text style={styles.itemScore}>Highest:{item.score===null ? 0 : item.score}</Text>
       </View>
     )
 
