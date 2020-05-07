@@ -14,7 +14,6 @@ export default class GameOverScreen extends Component {
             highScore: 0
         };
     }
-
     componentDidMount = async () => {
         await AsyncStorage.getItem('item').then(req => JSON.parse(req))
             .then(json => {

@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     position:'absolute'
   },
   clickerText: {
-    fontSize: 40,
+    fontSize: 50,
     fontWeight: 'bold',
     color: '#4CF70C',
     fontStyle: 'italic',

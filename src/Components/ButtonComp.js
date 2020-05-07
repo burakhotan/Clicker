@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         alignSelf: 'center',
-        color: 'white'
+        color: '#4CF70C'
     }
 
 });

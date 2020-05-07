@@ -34,7 +34,7 @@ export default class LeaderBoard extends Component {
             navigation={navigation}
           >
           </ImageButton>
-          <Text style={{marginLeft:110,fontSize:20,fontWeight:'bold',color:'#ffffff'}}>
+          <Text style={{marginLeft:110,fontSize:20,fontStyle:'italic',fontWeight:'bold',color:'#ffffff'}}>
             LeaderBoard
           </Text>
         </View>
@@ -68,13 +68,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: '#FFFFFF',
-    borderWidth: 2
+    borderWidth: 1,
+    borderRadius:5,
+    marginBottom:10
   },
   itemScore: {
-    fontSize: 20
+    fontSize: 20,
+    color:'#F3F3F3'
   },
   itemName: {
-    fontSize: 25
+    fontSize: 25,
+    color:'#F3F3F3'
   },
   topBar: {
     flex: 0.09,
